@@ -20,28 +20,36 @@
     <![endif]-->
   </head>
 
-  <body onload="Moi()">
+  <body>
     <span id="results"></span>
     <h1>Elokuvien etsintä</h1>
-    <div class="dropdown">
-      <button
-        class="btn btn-default dropdown-toggle"
-        type="button"
-        id="dropdownMenu1"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="true"
-        onclick="Moi()"
-      >
-        Dropdown
-        <span class="caret"></span>
-      </button>
-      <ul
-        class="dropdown-menu"
-        aria-labelledby="dropdownMenu1"
-        id="cityList"
-      ></ul>
-    </div>
+    <form id="teatteritt">
+      <p>Valitse elokuvateatteri:</p>
+      <input id="input" list="teatterit" name="teatterit">
+      <button type="submit" id="searchbutton">Etsi</button>
+      <datalist id="teatterit">
+        <option value="Espoo: OMENA"></option>
+        <option value="Espoo: SELLO"></option>
+        <option value="Helsinki: ITIS"></option>
+        <option value="Helsinki: KINOPALATSI"></option>
+        <option value="Helsinki: MAXIM"></option>
+        <option value="Helsinki: TENNISPALATSI"></option>
+        <option value="Vantaa: FLAMINGO"></option>
+        <option value="Jyväskylä: FANTASIA"></option>
+        <option value="Kuopio: SCALA"></option>
+        <option value="Lahti: KUVAPALATSI"></option>
+        <option value="Lappeenranta: STRAND"></option>
+        <option value="Oulu: PLAZA"></option>
+        <option value="Pori: PROMENADI"></option>
+        <option value="Tampere"></option>
+        <option value="Tampere: CINE ATLAS"></option>
+        <option value="Tampere: PLEVNA"></option>
+        <option value="Turku ja Raisio"></option>
+        <option value="Turku: KINOPALATSI"></option>
+        <option value="Raisio: LUXE MYLLY"></option>
+    </datalist>
+   
+  </form>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

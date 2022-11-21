@@ -11,12 +11,8 @@ body {
     background-size: cover;
 }
 
-.dropdown {
-    background-color: red;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+#input {
+   border: none;
     cursor: pointer;
     position: relative;
     display: inline-block;
@@ -26,12 +22,26 @@ body {
     transform: translate(50%, 20%) !important;;
   }
 
-  ul {
-    color: red;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  #search {
+    border: none;
+     position: relative;
+     display: inline-block;
+     left: 53% !important;
+     right: auto !important;
+     text-align: center !important;
+     transform: translate(50%, 20%) !important;;
+   }
+  
+   #searchbutton {
+   border: none;
+    position: relative;
+   display: inline-block;
+   left: 59% !important;
+   right: auto !important;
+   text-align: center !important;
+   transform: translate(50%, 20%) !important;;
+ }
+  p {
+     transform: translate(49%, 170%);
+     color: white;
   }
