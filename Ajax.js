@@ -1,11 +1,10 @@
 function Moi() {
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", "https://www.finnkino.fi/xml/TheatreAreas/", true);
+  xmlhttp.open("GET", "https://www.finnkino.fi/xml/Schedule/", true);
   xmlhttp.send();
 
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      // find myDiv and insert results there
       parseXML(this);
     }
   };
