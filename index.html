@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>API sovellus - Sami H ja Joel M</title>
-    <link rel="stylesheet" type="text/css" href="ajax.css">
+    <link rel="stylesheet" type="text/css" href="ajax.css" />
     <!-- Bootstrap CSS -->
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -21,35 +21,32 @@
   </head>
 
   <body>
-    <span id="results"></span>
     <h1>Elokuvien etsintä</h1>
     <form id="teatteritt">
       <p>Valitse elokuvateatteri:</p>
-      <input id="input" list="teatterit" name="teatterit">
-      <button type="submit" id="searchbutton">Etsi</button>
+      <input id="input" list="teatterit" name="teatterit" />
+      <button type="button" id="searchbutton">Etsi</button>
       <datalist id="teatterit">
-        <option value="Espoo: OMENA"></option>
-        <option value="Espoo: SELLO"></option>
-        <option value="Helsinki: ITIS"></option>
-        <option value="Helsinki: KINOPALATSI"></option>
-        <option value="Helsinki: MAXIM"></option>
-        <option value="Helsinki: TENNISPALATSI"></option>
-        <option value="Vantaa: FLAMINGO"></option>
-        <option value="Jyväskylä: FANTASIA"></option>
-        <option value="Kuopio: SCALA"></option>
-        <option value="Lahti: KUVAPALATSI"></option>
-        <option value="Lappeenranta: STRAND"></option>
-        <option value="Oulu: PLAZA"></option>
-        <option value="Pori: PROMENADI"></option>
-        <option value="Tampere"></option>
-        <option value="Tampere: CINE ATLAS"></option>
-        <option value="Tampere: PLEVNA"></option>
-        <option value="Turku ja Raisio"></option>
-        <option value="Turku: KINOPALATSI"></option>
-        <option value="Raisio: LUXE MYLLY"></option>
-    </datalist>
-   
-  </form>
+        <option value="Espoo - Omena"></option>
+        <option value="Espoo - Sello"></option>
+        <option value="Helsinki - Itis"></option>
+        <option value="Helsinki - Kinopalatsi"></option>
+        <option value="Helsinki - Maxim"></option>
+        <option value="Helsinki - Tennispalatsi"></option>
+        <option value="Vantaa - Flamingo"></option>
+        <option value="Jyväskylä - Fantasia"></option>
+        <option value="Kuopio - Scala"></option>
+        <option value="Lahti - Kuvapalatsi"></option>
+        <option value="Lappeenranta - Strand"></option>
+        <option value="Oulu - Plaza"></option>
+        <option value="Pori - Promenadi"></option>
+        <option value="Tampere - Cine Atlas"></option>
+        <option value="Tampere - Plevna"></option>
+        <option value="Turku - Kinopalatsi"></option>
+        <option value="Raisio - Luxe Mylly"></option>
+      </datalist>
+    </form>
+    <span id="elokuvat"></span>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

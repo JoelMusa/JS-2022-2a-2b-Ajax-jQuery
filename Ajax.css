@@ -1,47 +1,47 @@
 h1 {
-    text-align: center;
-    color: red !important;
-    padding-left: 400px;
+  text-align: center;
+  color: red !important;
+  padding-left: 400px;
 }
 
 body {
-    background-image: url("punainenmatto.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url("punainenmatto.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #input {
-   border: none;
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    left: 53% !important;
-    right: auto !important;
-    text-align: center !important;
-    transform: translate(50%, 20%) !important;;
-  }
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  left: 53% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(50%, 20%) !important;
+}
 
-  #search {
-    border: none;
-     position: relative;
-     display: inline-block;
-     left: 53% !important;
-     right: auto !important;
-     text-align: center !important;
-     transform: translate(50%, 20%) !important;;
-   }
-  
-   #searchbutton {
-   border: none;
-    position: relative;
-   display: inline-block;
-   left: 59% !important;
-   right: auto !important;
-   text-align: center !important;
-   transform: translate(50%, 20%) !important;;
- }
-  p {
-     transform: translate(49%, 170%);
-     color: white;
-  }
+#search {
+  border: none;
+  position: relative;
+  display: inline-block;
+  left: 53% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(50%, 20%) !important;
+}
+
+#searchbutton {
+  border: none;
+  position: relative;
+  display: inline-block;
+  left: 59% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(50%, 20%) !important;
+}
+p {
+  transform: translate(49%, 170%);
+  color: white;
+}
