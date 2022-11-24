@@ -20,14 +20,31 @@
     <![endif]-->
   </head>
 
-  <body>
-    <h1>Elokuvien etsintä</h1>
+  <body class="container-fluid">
+    <header>
+      <a href="https://www.finnkino.fi/"
+        ><img
+          src="https://upload.wikimedia.org/wikipedia/fi/7/7a/Finnkino-logo.png"
+          class="img-responsive"
+          alt="Finnkino-logo"
+          id="finnkino"
+          width="80"
+          height="80"
+      /></a>
+
+      <h1 id="otsikko"></h1>
+    </header>
+    <!--Lomakkeessa on hakukenttä ja siihen hakuvaihtoehdot-->
     <form id="teatteritt">
       <p>Valitse elokuvateatteri:</p>
       <input id="input" list="teatterit" name="teatterit" />
       <button type="button" id="searchbutton">Etsi</button>
       <datalist id="teatterit">
-        <option value="Espoo - Omena"></option>
+        <option value="Pääkaupunkiseutu"></option>
+        <option value="Helsinki"></option>
+        <option value="Tampere"></option>
+        <option value="Turku & Raisio"></option>
+        <option value="Espoo - Iso Omena"></option>
         <option value="Espoo - Sello"></option>
         <option value="Helsinki - Itis"></option>
         <option value="Helsinki - Kinopalatsi"></option>
@@ -46,6 +63,7 @@
         <option value="Raisio - Luxe Mylly"></option>
       </datalist>
     </form>
+    <!--Span elementtiin tulostetaan elokuvan hakutulokset-->
     <span id="elokuvat"></span>
 
     <!-- jQuery -->

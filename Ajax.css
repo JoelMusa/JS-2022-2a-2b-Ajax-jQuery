@@ -1,28 +1,38 @@
+body {
+  background-image: url("black.png");
+  background-attachment: fixed;
+  background-size: 100%;
+}
+/**/
+header {
+  padding: auto;
+}
+#finnkino {
+  float: inline-start;
+  background-color: black;
+}
 h1 {
   text-align: center;
-  color: red !important;
-  padding-left: 400px;
+  color: gold !important;
 }
-
-body {
-  background-image: url("punainenmatto.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+/**/
+form {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 15px;
 }
-
 #input {
   border: none;
   cursor: pointer;
   position: relative;
   display: inline-block;
-  left: 53% !important;
-  right: auto !important;
-  text-align: center !important;
-  transform: translate(50%, 20%) !important;
+  background-color: gainsboro;
+  border-radius: 5px;
 }
-
-#search {
+#input:focus {
+  outline-color: gold;
+}
+/*#search {
   border: none;
   position: relative;
   display: inline-block;
@@ -30,18 +40,43 @@ body {
   right: auto !important;
   text-align: center !important;
   transform: translate(50%, 20%) !important;
-}
+}*/
 
 #searchbutton {
   border: none;
   position: relative;
   display: inline-block;
-  left: 59% !important;
-  right: auto !important;
   text-align: center !important;
-  transform: translate(50%, 20%) !important;
+  background-color: gainsboro;
+  border-radius: 5px;
+}
+#searchbutton:hover {
+  background-color: gold;
 }
 p {
-  transform: translate(49%, 170%);
-  color: white;
+  color: gainsboro;
+  display: inline-block;
+  position: relative;
+}
+/**/
+table,
+td {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+}
+
+table {
+  border-spacing: 10px;
+  border-radius: 8px;
+  opacity: 0.9;
+}
+
+#pic {
+  font-style: italic;
+}
+
+#moviePic {
+  display: block;
 }
