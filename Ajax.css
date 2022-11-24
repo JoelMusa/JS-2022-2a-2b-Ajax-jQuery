@@ -14,12 +14,14 @@ header {
 h1 {
   text-align: center;
   color: gold !important;
+  margin-left: 32%;
 }
 /**/
 form {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 32%;
+  margin-right: auto;
   padding: 15px;
+  padding-left: 0;
 }
 #input {
   border: none;
