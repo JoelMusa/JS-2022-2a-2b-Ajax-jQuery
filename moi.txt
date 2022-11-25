@@ -1,4 +1,0 @@
-Hae data avoimesta API:sta
-Parsi data
-Display it nicely
-

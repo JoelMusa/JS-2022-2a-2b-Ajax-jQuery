@@ -6,6 +6,8 @@ body {
 /**/
 header {
   padding: auto;
+  align-items: center;
+  margin-bottom: 25px;
 }
 #finnkino {
   float: inline-start;
@@ -14,71 +16,113 @@ header {
 h1 {
   text-align: center;
   color: gold !important;
-  margin-left: 32%;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 2px;
 }
 /**/
 form {
-  margin-left: 32%;
+  margin-left: 45%;
   margin-right: auto;
-  padding: 15px;
-  padding-left: 0;
+  margin-bottom: 40px;
 }
 #input {
   border: none;
   cursor: pointer;
   position: relative;
   display: inline-block;
-  background-color: gainsboro;
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
+  block-size: 30px;
 }
-#input:focus {
-  outline-color: gold;
-}
-/*#search {
-  border: none;
-  position: relative;
-  display: inline-block;
-  left: 53% !important;
-  right: auto !important;
-  text-align: center !important;
-  transform: translate(50%, 20%) !important;
-}*/
 
 #searchbutton {
   border: none;
   position: relative;
   display: inline-block;
   text-align: center !important;
-  background-color: gainsboro;
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
+  block-size: 30px;
 }
 #searchbutton:hover {
   background-color: gold;
+  transition: 0.4s;
 }
 p {
-  color: gainsboro;
+  color: rgb(255, 255, 255);
   display: inline-block;
   position: relative;
+  font-size: large;
 }
 /**/
+table {
+  margin: auto;
+  align-items: center;
+}
+#rating {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  padding-bottom: 4px;
+}
+#id {
+  color: gold;
+  font-size: x-large;
+}
+#id:hover {
+  color: rgb(199, 169, 2);
+}
+#buyTicket {
+  color: black;
+  border-width: 2px;
+  border-color: white;
+  text-align: center !important;
+  background-color: white;
+  block-size: 30px;
+  border-style: solid;
+  size: 45px;
+  border-radius: 5px;
+  margin: 5px;
+}
+#buyTicket:hover {
+  border-color: gold;
+}
+
 table,
 td {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
   background-color: black;
+  padding: 5px;
+  color: white;
+  font-size: large;
+}
+tr {
+  margin: 10px;
+}
+#date {
+  font-size: small;
 }
 
 table {
-  border-spacing: 10px;
   border-radius: 8px;
-  opacity: 0.9;
+  padding: 10px;
+  border-color: black;
+  border-width: 5px;
+}
+#header {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: x-large;
+}
+#duration {
+  font-size: small;
 }
 
-#pic {
-  font-style: italic;
-}
-
-#moviePic {
+#moviePoster {
   display: block;
+  padding: 5px;
+}
+
+#place {
+  vertical-align: bottom;
 }
