@@ -1,19 +1,21 @@
 //Hakukenttä tyhjenee, kun sivu päivitetään.
-window.onload = document.getElementById("input").value = "";
+$(document).ready(function () {
+  $("#input").val("");
+});
 //Kun käyttäjä painaa "Etsi"-nappia, suoritetaan hakufunktio input kentän arvolla.
-document.getElementById("searchbutton").addEventListener("click", function () {
+$("#searchbutton").click(function () {
   getInformation();
 });
 //Kun käyttäjä painaa Enteriä, suoritetaan hakufunktio input-kentän arvolla.
-document.getElementById("input").addEventListener("keypress", function (event) {
+$("#input").keypress(function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     getInformation();
   }
 });
 //Kun käyttäjä painaa hakukentän kohdalla hiirtä, kenttä tyhjenee.
-document.getElementById("input").addEventListener("click", function () {
-  document.getElementById("input").value = "";
+$("#input").click(function () {
+  $("#input").val("");
 });
 
 //Määritellään muuttujat
@@ -28,12 +30,11 @@ var month = date.getMonth() + 1;
 var year = date.getFullYear();
 //Lisätään päiväykseen päivä,kuukausi ja vuosi
 date = day + "." + month + "." + year;
-document.getElementById("otsikko").innerHTML =
-  "Finnkino elokuvat " + date + "<br> - Sami H ja Joel M";
+$("#otsikko").html("Finnkino elokuvat " + date);
 
 //Funktio valitsee haun perusteella oikean teatterin ja sitä vastaavan ID:n.
 function getInformation() {
-  valinta = document.getElementById("input").value;
+  valinta = $("#input").val();
   valinta = valinta.trim();
   valinta = valinta.toLowerCase();
 
@@ -212,17 +213,14 @@ function getInformation() {
     default:
       theatreID = null;
       searchWord = "";
-      var haku = document.getElementById("input").value;
       alert(
-        'Hakemaasi aluetta tai teatteria:  "' +
-          haku +
-          '" ei löytynyt. Ole hyvä ja kokeile toista hakusanaa tai valitse oikea teatteri valikosta.'
+        "Hakemaasi aluetta tai teatteria ei löytynyt. Ole hyvä ja kokeile toista hakusanaa tai valitse oikea teatteri valikosta."
       );
-      document.getElementById("input").value = "";
+      $("#input").val("");
   }
   //Kun teatteri on valittu, suoritetaan XML datan haku ja tulostetaan oikea data näytölle.
   getXmlData();
-  document.getElementById("input").value = searchWord;
+  $("#input").val(searchWord);
 }
 
 function getXmlData() {
@@ -248,7 +246,7 @@ function parseXML(xml) {
   var i;
   //Tarkistetaan onko näytöksiä tälle päivälle.
   if (x.length == 0) {
-    var listName = document.getElementById("input").value;
+    var listName = $("#input").val("");
     var cinemaName;
     if (listName == "") {
       cinemaName = searchWord;
@@ -258,7 +256,7 @@ function parseXML(xml) {
     alert(
       cinemaName + " Ei näytöksiä tänään. Valitse toinen alue tai teatteri."
     );
-    document.getElementById("input").value = "";
+    $("#input").val("");
   } else {
     //For luupin avulla haetaan API:sta haluamamme tiedot
     for (i = 0; i < x.length; i++) {
@@ -309,7 +307,7 @@ function parseXML(xml) {
     }
     table += "</table>";
     //Table muuttuja tulostetaan näytölle span elementin sisään.
-    document.getElementById("elokuvat").innerHTML = table;
+    $("#elokuvat").html(table);
   }
 }
 //Muutetaan minuutit tunneiksi ja minuuteiksi.
