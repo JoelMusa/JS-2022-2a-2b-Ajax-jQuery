@@ -5,6 +5,9 @@ $(document).ready(function () {
 //Kun käyttäjä painaa "Etsi"-nappia, suoritetaan hakufunktio input kentän arvolla.
 $("#searchbutton").click(function () {
   getInformation();
+  $("table").ready(function () {
+    $("table").fadeIn();
+  });
 });
 //Kun käyttäjä painaa Enteriä, suoritetaan hakufunktio input-kentän arvolla.
 $("#input").keypress(function (event) {
@@ -219,95 +222,84 @@ function getInformation() {
       $("#input").val("");
   }
   //Kun teatteri on valittu, suoritetaan XML datan haku ja tulostetaan oikea data näytölle.
-  getXmlData();
+  getAndParseXmlData();
   $("#input").val(searchWord);
 }
 
-function getXmlData() {
+function getAndParseXmlData() {
   //Jos theatreID on määritetty, tehdään kysely API:in.
   if (theatreID != undefined) {
     var url =
       "https://www.finnkino.fi/xml/Schedule/?area=" + theatreID + "&dt=" + date;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        parseXML(this);
+
+    //XML datan parsiminen
+    $.get(url, function (data) {
+      var x = $(data).find("Show");
+      var table = "<table>";
+      var i;
+      //Tarkistetaan onko näytöksiä tälle päivälle.
+      if (x.length == 0) {
+        var listName = $("#input").val("");
+        var cinemaName;
+        if (listName == "") {
+          cinemaName = searchWord;
+        } else {
+          cinemaName = listName;
+        }
+        alert(
+          cinemaName + " Ei näytöksiä tänään. Valitse toinen alue tai teatteri."
+        );
+        $("#input").val("");
+      } else {
+        //For luupin avulla haetaan API:sta haluamamme tiedot
+        for (i = 0; i < x.length; i++) {
+          var eventLink = $(x[i]).find("EventURL")[0].childNodes[0].nodeValue;
+          var moviePoster = $(x[i]).find("EventSmallImagePortrait")[0]
+            .childNodes[0].nodeValue;
+          var eventTitle = $(x[i]).find("Title")[0].childNodes[0].nodeValue;
+          var length = $(x[i]).find("LengthInMinutes")[0].childNodes[0]
+            .nodeValue;
+          var showStartTime = $(x[i])
+            .find("dttmShowStart")[0]
+            .childNodes[0].nodeValue.slice(11, 16);
+          var place = $(x[i]).find("TheatreAndAuditorium")[0].childNodes[0]
+            .nodeValue;
+          var ageRating = $(x[i]).find("RatingImageUrl")[0].childNodes[0]
+            .nodeValue;
+          var buyTicket = $(x[i]).find("ShowURL")[0].childNodes[0].nodeValue;
+          //tiedot tallennetaan table muuttujan sisään.
+          table +=
+            "<tr><td id='pic' rowspan='2'> <a href='" +
+            eventLink +
+            "' target='_blank'>" +
+            "<img id='moviePoster' src='" +
+            moviePoster +
+            "'></img>" +
+            "</a></td><td id='date'>" +
+            date +
+            "</td><td id='header'><a id='id' href='" +
+            eventLink +
+            "'><p id='id'>" +
+            eventTitle +
+            "</p></a>" +
+            "<img id='rating' src='" +
+            ageRating +
+            "'></img>" +
+            "</td><td id='duration' rowspan='1'> Kesto:<br>" +
+            timeConvert(length) +
+            "</td></tr><tr><td id='startTime'> Alkaa:<br>" +
+            showStartTime +
+            "</td><td id='place'>Finnkino " +
+            place +
+            "</td><td><a href='" +
+            buyTicket +
+            "'><button id='buyTicket'>Osta Liput</button></a></tr>";
+        }
+        table += "</table>";
+        //Table muuttuja tulostetaan näytölle span elementin sisään.
+        $("#elokuvat").html(table);
       }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-  }
-}
-//XML datan parsiminen
-function parseXML(xml) {
-  xmlData = xml.responseXML;
-  var x = xmlData.getElementsByTagName("Show");
-  var table = "<table>";
-  var i;
-  //Tarkistetaan onko näytöksiä tälle päivälle.
-  if (x.length == 0) {
-    var listName = $("#input").val("");
-    var cinemaName;
-    if (listName == "") {
-      cinemaName = searchWord;
-    } else {
-      cinemaName = listName;
-    }
-    alert(
-      cinemaName + " Ei näytöksiä tänään. Valitse toinen alue tai teatteri."
-    );
-    $("#input").val("");
-  } else {
-    //For luupin avulla haetaan API:sta haluamamme tiedot
-    for (i = 0; i < x.length; i++) {
-      var eventLink =
-        x[i].getElementsByTagName("EventURL")[0].childNodes[0].nodeValue;
-      var moviePoster = x[i].getElementsByTagName("EventSmallImagePortrait")[0]
-        .childNodes[0].nodeValue;
-      var eventTitle =
-        x[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue;
-      var length =
-        x[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue;
-      var showStartTime = x[i]
-        .getElementsByTagName("dttmShowStart")[0]
-        .childNodes[0].nodeValue.slice(11, 16);
-      var place = x[i].getElementsByTagName("TheatreAndAuditorium")[0]
-        .childNodes[0].nodeValue;
-      var ageRating =
-        x[i].getElementsByTagName("RatingImageUrl")[0].childNodes[0].nodeValue;
-      var buyTicket =
-        x[i].getElementsByTagName("ShowURL")[0].childNodes[0].nodeValue;
-      //tiedot tallennetaan table muuttujan sisään.
-      table +=
-        "<tr><td id='pic' rowspan='2'> <a href='" +
-        eventLink +
-        "' target='_blank'>" +
-        "<img id='moviePoster' src='" +
-        moviePoster +
-        "'></img>" +
-        "</a></td><td id='date'>" +
-        date +
-        "</td><td id='header'><a id='id' href='" +
-        eventLink +
-        "'><p id='id'>" +
-        eventTitle +
-        "</p></a>" +
-        "<img id='rating' src='" +
-        ageRating +
-        "'></img>" +
-        "</td><td id='duration' rowspan='1'> Kesto:<br>" +
-        timeConvert(length) +
-        "</td></tr><tr><td id='startTime'> Alkaa:<br>" +
-        showStartTime +
-        "</td><td id='place'>Finnkino " +
-        place +
-        "</td><td><a href='" +
-        buyTicket +
-        "'><button id='buyTicket'>Osta Liput</button></a></tr>";
-    }
-    table += "</table>";
-    //Table muuttuja tulostetaan näytölle span elementin sisään.
-    $("#elokuvat").html(table);
+    });
   }
 }
 //Muutetaan minuutit tunneiksi ja minuuteiksi.
@@ -316,3 +308,9 @@ function timeConvert(duration) {
   var hours = (duration - minutes) / 60;
   return hours + " h " + minutes + " min";
 }
+
+//Liitetään nuoli-ikoniin toiminto, jolla palaa takaisin sivun ylälaitaan.
+$("#scrollUp").click(function () {
+  var m = (document.body.scrollTop = 0); // Selaimelle Safari
+  var t = (document.documentElement.scrollTop = 0); // Selaimelle Chrome, Firefox, IE and Opera
+});

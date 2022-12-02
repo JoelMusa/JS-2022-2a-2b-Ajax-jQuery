@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>API sovellus - Sami H ja Joel M</title>
-    <link rel="stylesheet" type="text/css" href="ajax.css" />
-    <!-- Bootstrap CSS -->
+
+    <!-- Pure CSS -->
     <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="ajax.css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,58 +27,72 @@
     <![endif]-->
   </head>
 
-  <body class="container-fluid">
+  <body>
     <header>
       <a href="https://www.finnkino.fi/"
         ><img
           src="https://upload.wikimedia.org/wikipedia/fi/7/7a/Finnkino-logo.png"
-          class="img-responsive"
+          class="pure-img"
           alt="Finnkino-logo"
           id="finnkino"
           width="80"
           height="80"
       /></a>
-
       <h1 id="otsikko"></h1>
     </header>
     <!--Lomakkeessa on hakukenttä ja siihen hakuvaihtoehdot-->
-    <form id="teatteritt">
-      <input
-        id="input"
-        list="teatterit"
-        name="teatterit"
-        placeholder="Valitse elokuvateatteri"
-      />
-      <button type="button" id="searchbutton">Etsi</button>
-      <datalist id="teatterit">
-        <option value="Pääkaupunkiseutu"></option>
-        <option value="Helsinki"></option>
-        <option value="Tampere"></option>
-        <option value="Turku & Raisio"></option>
-        <option value="Espoo - Iso Omena"></option>
-        <option value="Espoo - Sello"></option>
-        <option value="Helsinki - Itis"></option>
-        <option value="Helsinki - Kinopalatsi"></option>
-        <option value="Helsinki - Maxim"></option>
-        <option value="Helsinki - Tennispalatsi"></option>
-        <option value="Vantaa - Flamingo"></option>
-        <option value="Jyväskylä - Fantasia"></option>
-        <option value="Kuopio - Scala"></option>
-        <option value="Lahti - Kuvapalatsi"></option>
-        <option value="Lappeenranta - Strand"></option>
-        <option value="Oulu - Plaza"></option>
-        <option value="Pori - Promenadi"></option>
-        <option value="Tampere - Cine Atlas"></option>
-        <option value="Tampere - Plevna"></option>
-        <option value="Turku - Kinopalatsi"></option>
-        <option value="Raisio - Luxe Mylly"></option>
-      </datalist>
+    <form id="teatteritt" class="pure-form pure-form-aligned">
+      <div id="keskelle" class="pure-control-group">
+        <input
+          id="input"
+          list="teatterit"
+          name="teatterit"
+          placeholder="Valitse elokuvateatteri"
+        />
+        <button
+          class="pure-button button-success"
+          type="button"
+          id="searchbutton"
+        >
+          Etsi
+        </button>
+        <datalist id="teatterit">
+          <option value="Pääkaupunkiseutu"></option>
+          <option value="Helsinki"></option>
+          <option value="Tampere"></option>
+          <option value="Turku & Raisio"></option>
+          <option value="Espoo - Iso Omena"></option>
+          <option value="Espoo - Sello"></option>
+          <option value="Helsinki - Itis"></option>
+          <option value="Helsinki - Kinopalatsi"></option>
+          <option value="Helsinki - Maxim"></option>
+          <option value="Helsinki - Tennispalatsi"></option>
+          <option value="Vantaa - Flamingo"></option>
+          <option value="Jyväskylä - Fantasia"></option>
+          <option value="Kuopio - Scala"></option>
+          <option value="Lahti - Kuvapalatsi"></option>
+          <option value="Lappeenranta - Strand"></option>
+          <option value="Oulu - Plaza"></option>
+          <option value="Pori - Promenadi"></option>
+          <option value="Tampere - Cine Atlas"></option>
+          <option value="Tampere - Plevna"></option>
+          <option value="Turku - Kinopalatsi"></option>
+          <option value="Raisio - Luxe Mylly"></option>
+        </datalist>
+      </div>
     </form>
     <!--Span elementtiin tulostetaan elokuvan hakutulokset-->
     <span id="elokuvat"></span>
     <footer>
       <h2>Sami H & Joel M</h2>
       <h3>jQuery by Joel M</h3>
+
+      <button class="pure-button" id="scrollUp" type="button">
+        <i
+          class="fa fa-arrow-circle-up"
+          style="font-size: 40px; color: gold"
+        ></i>
+      </button>
     </footer>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
