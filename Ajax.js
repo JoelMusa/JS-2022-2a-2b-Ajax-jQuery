@@ -311,6 +311,6 @@ function timeConvert(duration) {
 
 //Liitetään nuoli-ikoniin toiminto, jolla palaa takaisin sivun ylälaitaan.
 $("#scrollUp").click(function () {
-  var m = (document.body.scrollTop = 0); // Selaimelle Safari
-  var t = (document.documentElement.scrollTop = 0); // Selaimelle Chrome, Firefox, IE and Opera
+  document.body.scrollTop = 0; // Selaimelle Safari
+  document.documentElement.scrollTop = 0; // Selaimelle Chrome, Firefox, IE and Opera
 });
