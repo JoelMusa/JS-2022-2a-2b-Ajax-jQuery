@@ -26,6 +26,7 @@ h3 {
   margin-top: 0;
 }
 #scrollUp {
+  display: none;
   position: fixed;
   left: 5px;
   bottom: 5px;

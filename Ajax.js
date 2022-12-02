@@ -20,7 +20,10 @@ $("#input").keypress(function (event) {
 $("#input").click(function () {
   $("#input").val("");
 });
-
+//Kun sivua scrollataan, funktio piilottaa tai näyttää napin.
+$(window).scroll(function () {
+  scrollFunction();
+});
 //Määritellään muuttujat
 var theatreID;
 var searchWord;
@@ -309,8 +312,16 @@ function timeConvert(duration) {
   return hours + " h " + minutes + " min";
 }
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    $("#scrollUp").fadeIn(1000);
+  } else {
+    $("#scrollUp").fadeOut(500);
+  }
+}
+
 //Liitetään nuoli-ikoniin toiminto, jolla palaa takaisin sivun ylälaitaan.
 $("#scrollUp").click(function () {
-  document.body.scrollTop = 0; // Selaimelle Safari
-  document.documentElement.scrollTop = 0; // Selaimelle Chrome, Firefox, IE and Opera
+  document.body.scrollTop = 0; //  Safari selaimelle
+  document.documentElement.scrollTop = 0; //  Chrome, Firefox, IE ja Opera selaimille
 });
