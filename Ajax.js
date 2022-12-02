@@ -314,9 +314,9 @@ function timeConvert(duration) {
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    $("#scrollUp").fadeIn(1000);
+    $("#scrollUp").fadeIn("slow");
   } else {
-    $("#scrollUp").fadeOut(500);
+    $("#scrollUp").fadeOut();
   }
 }
 
